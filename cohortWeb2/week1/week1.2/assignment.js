@@ -16,3 +16,9 @@ for(let i = 0; i < 30 ; i++)
 
 // using setInterval
 
+
+
+
+
+
+// create a terminal clock ??
