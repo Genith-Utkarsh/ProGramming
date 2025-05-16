@@ -11,3 +11,4 @@ fs.readFile("a.txt", "utf-8", function(err, data)
         fs.writeFile("a.txt")
     }
 })
+
