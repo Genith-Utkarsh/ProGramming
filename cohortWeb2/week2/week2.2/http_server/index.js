@@ -6,4 +6,14 @@ app.get('/', function(req, res){
     res.send("Hello world")
 })
 
-app.listen(port)
+app.get('/another', function(req, res){
+    res.json({
+        userName : "Alan Walker", 
+        age : 20,
+        nickName : "Dj Walkz"
+    })
+})
+
+app.listen(port, function(){
+    console.log(`app listening on port ${port}`)
+})
