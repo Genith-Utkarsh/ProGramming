@@ -10,7 +10,7 @@ app.get('/another', function(req, res){
     res.json({
         userName : "Alan Walker", 
         age : 20,
-        nickName : "Dj Walkz"
+        nickName : "Dj Walk"
     })
 })
 
