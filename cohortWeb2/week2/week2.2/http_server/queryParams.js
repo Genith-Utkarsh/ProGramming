@@ -14,7 +14,7 @@ app.post("/conversations", function(req, res){
     // do some machine learning thing here
 
     res.json({
-        output : console.log(`You enetered ${message}`)
+        output : `You enetered ${message}`
     })
 })
 
