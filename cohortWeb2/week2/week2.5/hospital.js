@@ -62,7 +62,18 @@ app.put("/", function(req, res){
 })
 
 app.delete("/", function(req, res){
+    const newKidneys = []
+    for(let i = 0; i < users[0].kidneys.length; i++)
+    {
+        newKidneys.push({
+            healthy : true
+        })
+    }
 
+    users[0].kidneys = newKidneys
+    res.json({
+        msg : "Removed kidneys that were unhealthy"
+    })
 })
 
 
