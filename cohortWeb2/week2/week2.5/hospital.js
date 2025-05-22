@@ -50,7 +50,15 @@ app.post("/", function(req, res){
 })
 
 app.put("/", function(req, res){
+    // making all kidneys healthy
+    for(let i = 0; i < users[0].kidneys.length; i++)
+    {
+        users[0].kidneys[i].healthy = true
+    }
 
+    res.json({
+        msg : "Kidneys Updated Successfully.."
+    })
 })
 
 app.delete("/", function(req, res){
