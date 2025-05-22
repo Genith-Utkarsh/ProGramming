@@ -27,10 +27,26 @@ app.get("/", function(req, res){
             numberOfHealthyKidneys += 1
         }
     }
+    const numberOfUnealthyKidneys = numberOfKidneys - numberOfHealthyKidneys
+
+    res.json({
+        numberOfKidneys,
+        numberOfHealthyKidneys,
+        numberOfUnealthyKidneys
+    })
 })
 
 app.post("/", function(req, res){
+    // user will post some info
 
+    const isHealthy = req.body.isHealthy
+    users[0].kidneys.push({
+        healthy : isHealthy
+    })
+
+    res.json({
+        msg : "Done"
+    })
 })
 
 app.put("/", function(req, res){
