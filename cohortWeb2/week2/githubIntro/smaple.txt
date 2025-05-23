@@ -1,0 +1,5 @@
+Sample file for github 
+
+White part : part which is untouched
+Green part : Part which is being modified or newly added
+Red part : Part which has been deleted for some reason
