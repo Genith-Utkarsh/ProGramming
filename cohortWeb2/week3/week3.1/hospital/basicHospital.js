@@ -26,7 +26,7 @@ app.get("/health-checkup", (req, res) => {
         return 
       }
 
-    res.json({
+    res.json({                               // if all checks are fine
         msg : "Your kidney is fine"
     })
 })
