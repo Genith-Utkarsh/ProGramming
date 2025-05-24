@@ -19,12 +19,16 @@ app.get("/health-checkup", (req, res) => {
         return
     }
 
-    if(kidneyId != 2 || kidneyId != 1 ){
+    if(kidneyId != 2 ){
         res.status(411).json({
             msg : "wrong inputs"
         })  
         return 
       }
+
+    res.json({
+        msg : "Your kidney is fine"
+    })
 })
 
 app.listen(port, function(){
