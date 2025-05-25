@@ -11,7 +11,7 @@ function calculateReq(req, res, next){
 }
 
 app.get("/", calculateReq, function(req, res){
-    res.send("Done")
+    res.send("Done", numberOfReq)
 })
 
 
