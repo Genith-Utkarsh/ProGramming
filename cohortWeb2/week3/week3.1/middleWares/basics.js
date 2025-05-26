@@ -1,6 +1,6 @@
-const express = require("Express")
+const express = require("express")
 const app = express()
-const port = 300
+const port = 3000
 
 // passing many cb function in app.get
 // using 'next' as argument to pass control over next function by calling next()
