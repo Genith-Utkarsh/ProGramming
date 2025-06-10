@@ -2,7 +2,7 @@ const zod = require("zod")
 
 function validateInpute(arr)
 {
-    const schema = zod.array(zod.number)
+    const schema = zod.array(zod.number())
 
     const responce = schema.safeParse(arr)
 
