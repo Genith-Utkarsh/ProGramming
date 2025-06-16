@@ -8,7 +8,7 @@ const port = 3000
 
 app.get("/health-checkup", function(req, res, next){
     console.log("Hii from req 1 ")
-    next()    // calling next to pass over next function
+    next()    // calling next to pass over next function ...
 
     
 }, function(req, res){
