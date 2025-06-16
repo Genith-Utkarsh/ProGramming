@@ -49,6 +49,29 @@ function checkUserExist(username, password){
 app.post("signin", function(req, res){                    // Taking input from user
     const username = req.headers.username
     const password = req.headers.password
+
+
+
+    // checking for if really exist or not if user doesnot exist we are throwing error and not proceeding further control over next (that why we are returning)
+
+    if(!checkUserExist(username, password)){
+        return res.status(403).json({
+            msg : "User doesn't exist in our data base"
+        })
+    }
+
+
+    // if user pass the checks like user exist in database then it will be rewarded as JWT pass where you can enjoy request (access) till jwt expiration 
+
+
+    const token = jwt.sign({username : username}, jwtPassword)         // {username : "utkarsh"}  ==> payload      and for this data ir payload only the jwt token will be generated once decoded the this data will be shown up
+
+    
+
+    // rewarding jwt token to user
+    return res.json({
+        token
+    })
 })
 
 
