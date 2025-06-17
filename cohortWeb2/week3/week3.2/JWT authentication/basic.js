@@ -46,7 +46,7 @@ function checkUserExist(username, password){
 
 
 
-app.post("signin", function(req, res){                    // Taking input from user
+app.post("/signin", function(req, res){                    // Taking input from user
     const username = req.body.username
     const password = req.body.password
 
@@ -81,15 +81,15 @@ app.post("signin", function(req, res){                    // Taking input from u
 // 2) Get Method
 // 3) once the reuest fullfilled (token is right ) the user can access route
 
-app.get("/users", function(req, res){
-    const token = req.headers.authorization
+// app.get("/users", function(req, res){
+//     const token = req.headers.authorization
     
-})
+// })
 
 
 
 
 
 app.listen(port, () => {
-    console.log(`This app is listening on poer ${port}`)
+    console.log(`This app is listening on port ${port}`)
 })
