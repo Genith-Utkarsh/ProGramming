@@ -91,7 +91,7 @@ app.post("/signin", async function(req, res){
 
     // comparing the password 
 
-    if(user.password !== password){
+    if(user.password != password){
         return res.status(403).json({
             msg : "Invalid password"
         })
