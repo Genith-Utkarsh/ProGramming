@@ -81,10 +81,42 @@ app.post("/signin", function(req, res){                    // Taking input from 
 // 2) Get Method
 // 3) once the reuest fullfilled (token is right ) the user can access route
 
-// app.get("/users", function(req, res){
-//     const token = req.headers.authorization
-    
-// })
+
+// jwt.verify(token, jwtPassword)
+// ✔️ If the token is valid → it decodes the payload and gives you the original data (like username, id, role, etc.)
+
+// ❌ If the token is invalid (expired, tampered, or wrong secret) → it throws an error
+
+
+app.get("/users", function(req, res){
+    const token = req.headers.authorization
+
+    try {
+        const decoded = jwt.verify(token, jwtPassword)   // gives back original data if token is valid else throws error
+        const username = decoded.username
+
+
+        // returning json of users except the original user
+
+        res.json ({
+            users : ALL_USERS.filter(function(user){
+                if(user.username == username){
+                    return false
+                }
+                else {
+                    return true
+                }
+            })
+        })
+
+
+    }
+    catch(err) {
+        return res.status(403).json({
+            msg : "Invalid token"
+        })
+    }
+})
 
 
 
