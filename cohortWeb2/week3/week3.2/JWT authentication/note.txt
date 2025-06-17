@@ -1,0 +1,161 @@
+🔐 1. Hashing
+Hashing is a one-way transformation — once done, it cannot be undone.
+
+📌 Used for:
+Storing passwords securely
+
+Checking if data is tampered
+
+🧠 Think of it like:
+Putting a paper into a shredder — you can't reconstruct the original paper, but you can compare shred piles to check if they match.
+
+Example:
+bash
+Copy
+Edit
+password123 → fbc0e2f8bc9e4ee3c66b4cbdd8a93762
+When a user logs in:
+
+You hash their entered password
+
+Compare it to the stored hash
+
+✅ If matched, the user is authenticated.
+❌ The original password is never saved.
+
+Popular Hashing Algorithms:
+SHA-256
+
+bcrypt (best for passwords)
+
+Argon2
+
+🧙 2. Encryption
+Encryption is a two-way transformation — it can be reversed (decrypted) with a key.
+
+📌 Used for:
+Protecting data in transit or at rest
+
+Storing sensitive data like access tokens, JWT, etc.
+
+🧠 Think of it like:
+Locking your message in a box with a key. Anyone with the key can open it.
+
+Two Types:
+Symmetric Encryption – Same key to encrypt and decrypt
+(e.g., AES)
+
+Asymmetric Encryption – Public key to encrypt, private key to decrypt
+(e.g., RSA)
+
+🔓 3. Decryption
+Decryption is simply the reverse of encryption. You use the appropriate key to unlock the data and view the original content.
+
+💡 In Authentication Flow:
+Task	Uses
+Store password	🔐 Hashing
+Login check	🔐 Compare hash
+Store token securely	🔒 Encrypt it
+Read token from disk	🔓 Decrypt it
+Secure data transfer	🔒 HTTPS uses encryption (SSL/TLS)
+
+⚔️ Example Use Case (Login):
+User registers:
+
+You hash the password → store in DB.
+
+User logs in:
+
+You hash the entered password → compare with DB hash.
+
+User is authenticated:
+
+You generate an access token, encrypt it (optional), and send it.
+
+User revisits:
+
+You decrypt token (if encrypted), verify, and allow access.
+
+
+
+
+
+
+
+
+
+
+
+
+🪪 What is JWT?
+JWT (JSON Web Token) is a compact, self-contained token that securely transmits information between two parties as a JSON object.
+
+Used for:
+
+User Authentication ✅
+
+Authorization 🔐
+
+Single Sign-On (SSO)
+
+🧱 JWT Structure (3 Parts)
+A JWT looks like this:
+
+Copy
+Edit
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9. 
+eyJ1c2VySWQiOiIxMjM0NTYiLCJyb2xlIjoiYWRtaW4ifQ. 
+AbCdEfGhIjKlMnOpQrStUvWxYz123456
+1️⃣ Header
+Metadata about the token
+
+json
+Copy
+Edit
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+2️⃣ Payload
+The actual data (claims) like user ID, role, etc.
+
+json
+Copy
+Edit
+{
+  "userId": "123456",
+  "role": "admin",
+  "exp": 1718789900
+}
+3️⃣ Signature
+Ensures the token wasn’t tampered with.
+
+text
+Copy
+Edit
+HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), secret)
+🔐 How JWT Works in Authentication
+🧪 Step-by-Step:
+📌 Login
+User logs in with correct credentials.
+
+Server creates a JWT with user info + expiry.
+
+Server signs the token with a secret key.
+
+Server sends this token to the client.
+
+📌 Access Protected Routes
+Client stores JWT (usually in localStorage or cookies).
+
+On every request to protected API:
+
+JWT is sent in Authorization header like:
+
+http
+Copy
+Edit
+Authorization: Bearer <JWT>
+Server verifies the token using the secret.
+
+If valid, server allows access — no DB call needed.
