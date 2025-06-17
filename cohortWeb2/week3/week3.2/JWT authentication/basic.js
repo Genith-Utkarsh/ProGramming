@@ -3,7 +3,7 @@ const app = express()
 const jwt = require("jsonwebtoken")
 
 
-const jwtPassword = 123123      // secret key
+const jwtPassword = "123123 "     // secret key  // must be string
 const port = 3000              // deifining port 
 
 app.use(express.json())          // middleWare
