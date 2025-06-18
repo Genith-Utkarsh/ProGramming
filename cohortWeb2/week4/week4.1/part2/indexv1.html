@@ -17,7 +17,7 @@
             const b = document.getElementById("num2").value
 
 
-            const responce = await fetch()  // create a backend server using express using query selector
+            const responce = await fetch("https://sum-server.100xdevs.com/sum?a" + a + "&b="+ b)  // create a backend server using express using query selector
             const ans = responce.text()
             document.getElementById("finalsum").innerHTML = `Total sum = ${ans}`
         }
