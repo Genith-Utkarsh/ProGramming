@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sum Calculator</title>
+</head>
+<body>
+
+  <input type="text" placeholder="Enter first number" id="num1"><br><br>
+  <input type="text" placeholder="Enter second number" id="num2"><br><br>
+  <button onclick="findSum()">Sum</button><br><br>
+
+  <div id="finalsum"></div>
+
+  <script>
+    function findSum() {
+      let num1 = parseFloat(document.getElementById("num1").value);
+      let num2 = parseFloat(document.getElementById("num2").value);
+
+      let result = num1 + num2;
+
+      let showResult = document.getElementById("finalsum");
+      showResult.innerHTML = `The Total sum is = ${result}`;
+    }
+  </script>
+
+</body>
+</html>
