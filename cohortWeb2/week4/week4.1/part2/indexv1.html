@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Enter first number" id="num1"><br><br>
+    <input type="text" placeholder="Enter second number" id="num2"><br><br>
+    <button onclick="findSum()">Sum</button><br><br>
+    <div id="finalsum"></div>
+
+    <script>
+        async function findSum() {
+            const a = document.getElementById("num1").value
+            const b = document.getElementById("num2").value
+
+
+            const responce = await fetch()  // create a backend server using express using query selector
+            const ans = responce.text()
+            document.getElementById("finalsum").innerHTML = `Total sum = ${ans}`
+        }
+    </script>
+
+</body>
+</html>
