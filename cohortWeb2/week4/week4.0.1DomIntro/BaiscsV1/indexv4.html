@@ -33,10 +33,11 @@
     let btn = document.querySelector("button")
     click = 0
     btn.addEventListener("click", function(){
-        click++
-        if(click % 2 != 0){
+        
+        if(click == 0){
             btn.innerText = "On"
             bulb.style.backgroundColor = "black"
+            click =1
         }
         else{
             btn.innerText = "Off"
