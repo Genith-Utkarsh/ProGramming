@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>How are You People</h1>
+    <script >
+        // adding event listener
+        let count = 0
+        let a = document.querySelector("h1")
+        a.addEventListener("click", function(){
+            count++
+            a.innerHTML = `You clicked the heading element ${count}`
+            a.style.color = "red"
+            a.style.backgroundColor = "yellow"
+        })
+    </script>
+</body>
+</html>
