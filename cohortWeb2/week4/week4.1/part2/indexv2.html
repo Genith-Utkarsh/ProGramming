@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sum App</title>
+</head>
+<body>
+    <input oninput="debounceFindSum()"    type="text" placeholder="Enter first number" id="num1"><br><br>
+    <input oninput="debounceFindSum()"  type="text" placeholder="Enter second number" id="num2"><br><br>
+    
+    <div id="finalsum"></div>
+
+    <script>
+
+        // function to debounce actual function here findSum()
+        let timeout;
+        function debounceFindSum(){
+            clearTimeout(timeout)      // stops the  setTimout(here it is stopping initial setTimeout )
+            timeout = setTimeout(function(){
+                findSum()
+            }, 1000)
+        }
+
+        function findSum() {
+            const a = parseFloat(document.getElementById("num1").value);
+            const b = parseFloat(document.getElementById("num2").value);
+
+            const result = a + b
+            document.getElementById("finalsum").innerHTML = `Sum = ${result}`
+        }
+    </script>
+</body>
+</html>
