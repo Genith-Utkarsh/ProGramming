@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="title" id="title" > <br><br>
+    <input type="text" placeholder="description" id="description" > <br><br>
+
+    <button onclick="addTodo()">Add Todo</button><br><br>
+    <div id="todos"></div>
+
+    <script>
+
+        let globalId =1
+
+        function markAsDone(todoId){
+            const outerDiv = document.getElementById(todoId)
+            outerDiv.children[2].innerHTML = "Done!"
+        }
+
+        function createChild(title, description, id){
+             const outerdiv = document.createElement("div")
+             
+
+             // <div>title</div>
+             const firstInnerdiv = document.createElement("div")
+             firstInnerdiv.innerHTML = title
+             outerdiv.appendChild(firstInnerdiv)
+
+             // <div>Desciption</div>
+
+             const secondInnerdiv = document.createElement("div")
+             secondInnerdiv.innerHTML = description
+             outerdiv.appendChild(secondInnerdiv)
+
+
+             // <button>Mark as done</button>
+
+             const thirdInnerdiv = document.createElement("button")
+             thirdInnerdiv.innerHTML = "Mark as done"
+             thirdInnerdiv.setAttribute("onclick", `markAsDone(${id})`)
+             outerdiv.appendChild(thirdInnerdiv)
+
+
+             outerdiv.setAttribute("id", id)
+
+             return outerdiv
+        }
+
+
+        function addTodo(){
+            const title = document.getElementById("title").value
+            const description = document.getElementById("description").value
+
+            const parent = document.getElementById("todos")
+
+            // first create three child title, description, button and appednd it to parent div
+
+            parent.appendChild(createChild(title, description, globalId++))
+        }
+    </script>
+</body>
+</html>
