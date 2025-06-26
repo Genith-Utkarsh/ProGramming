@@ -14,3 +14,36 @@ function displayResultPassive(data) {
 let ans = sum(1, 2 , displayResult)
 // You are only allowed to call one function after this
 // How will you displayResult of a sum
+
+
+
+
+
+
+function calculateArithematic(a, b, operaton){
+    const result = operation(a, b)
+    return result
+}
+
+function add(a, b){
+    return a + b
+}
+
+function subtract(a, b){
+    return a - b
+}
+
+
+function multiply(a, b){
+    return a * b
+}
+
+
+function divide(a, b){
+    return a / b
+}       
+
+
+let finalResult = calculateArithematic(10, 20, multiply)
+
+console.log("Final result is : " + finalResult);
