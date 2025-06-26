@@ -29,7 +29,10 @@ function App() {
 
   return (
     <div>
-      <CustomButton count = {count} setCount = {setCount} ></CustomButton>
+      <CustomButton count = {count} setCount = {setCount} ></CustomButton>  
+      <CustomButton count = {count + 1} setCount = {setCount} ></CustomButton> 
+      <CustomButton count = {count - 1} setCount = {setCount} ></CustomButton> 
+
     </div>
   )
 }
