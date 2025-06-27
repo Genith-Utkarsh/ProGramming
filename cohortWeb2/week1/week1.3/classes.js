@@ -24,3 +24,4 @@ let cat = new animal("cat", 4, "meow meow")    // Creating Object from Class
 console.log(dog)
 console.log(cat)               
 
+
