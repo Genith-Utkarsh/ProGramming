@@ -1,4 +1,4 @@
-import { reject } from "async"
+const fs = require("fs")
 
 function kiratAsyncFunction()
 {
@@ -20,19 +20,21 @@ main()
 console.log("Before main")
 
 
-const fs = require("fs")
 
 function narutoReadFile(){
-    return new promise((resolve , reject) => {
-        fstat.narutoReadFile("a.txt", "utf-8", (err, data) =>{
-            if(err) throw err;
+    return new Promise((resolve , reject) => {
+        fs.readFile("a.txt", "utf-8", (err, data) =>{
+            if(err)  throw err;
+            else {
+                resolve(data)
+            }
             
-            resolve(data)
         })
     })
 }
 
-async function main(){
+async function mainSecond(){
     let content = await narutoReadFile()
     console.log(content)
 }
+mainSecond()
