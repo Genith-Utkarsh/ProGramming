@@ -1,19 +1,16 @@
-const  fs = require("fs")
+const fs = require("fs")    // imported fs module
+const { resolve } = require("path")
 
-function narutoReadFile()
-{
-    return new Promise(function(resolve)
-{
-    fs.readFile("a.txt", "utf-8", function(err, data)
-    {   
-        resolve(data)
+function myOwnAsyn(){
+    return new Promise((resolve, reject) => {
+        fs.readFile("a.txt", "utf-8", (err, data) => {
+            if(err) throw err ;
+            
+            resolve(data)
+        })
     })
+}
+
+myOwnAsyn().then((content) => {
+    console.log(content)
 })
-}
-
-function onDone(data)
-{
-    console.log(data)
-}
-
-narutoReadFile.then(onDone)
