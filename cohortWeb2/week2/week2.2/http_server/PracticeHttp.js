@@ -7,7 +7,22 @@ app.use(express.json()) // Middleware to parse JSON bodies
 
 app.get("/", (req, res) => {
 
-    res.send("Welcome to the HTTP Server!")
+    // res.send("Welcome to the HTTP Server!")
+    res.json({
+        "message" : "Great you have successfully completed the lvl"
+    })
+
+})
+
+
+app.post("/solve", (req, res) => {
+    const question = req.body.question
+    console.log("Received question:", question)
+    // Here you can add logic to process the question
+    res.json({
+        "message": "Question received successfully",
+        "question": question
+    })
 
 })
 
