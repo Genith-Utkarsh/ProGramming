@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="getData()">Get Data</button>
+    <div id = "user"></div>
+    <script>
+        async function getData(){
+            const responce = await  fetch("https://fakerapi.it/api/v1/persons")
+            const finalData = await responce.json()
+            console.log(finalData)
+
+            const userDiv = document.getElementById("user");
+            userDiv.innerHTML = JSON.stringify(finalData);
+           
+        }
+    </script>
+</body>
+</html>
