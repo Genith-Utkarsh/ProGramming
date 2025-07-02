@@ -1,0 +1,8 @@
+# Node.js project
+node_modules/         # Ignore dependencies
+.env                  # Ignore secrets
+.DS_Store             # macOS system file
+dist/                 # Ignore build output
+*.log                 # Ignore all .log files
+.vscode/              # Ignore local editor settings
+npm-debug.log*        # Ignore npm debug logs
