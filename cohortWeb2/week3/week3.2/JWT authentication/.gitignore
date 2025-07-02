@@ -6,3 +6,4 @@ dist/                 # Ignore build output
 *.log                 # Ignore all .log files
 .vscode/              # Ignore local editor settings
 npm-debug.log*        # Ignore npm debug logs
+.env
