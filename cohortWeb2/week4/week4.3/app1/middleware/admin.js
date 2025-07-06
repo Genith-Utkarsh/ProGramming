@@ -3,7 +3,7 @@ const {Admin} = require("../db/index.js")
 function adminMiddleware(req , res, next ){
     const {username , password} = req.headers
 
-    User.findOne({
+    Admin.findOne({
         username : username ,
         password : password
     })
