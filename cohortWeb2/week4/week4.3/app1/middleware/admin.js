@@ -1,7 +1,8 @@
 const {Admin} = require("../db/index.js")
 
 function adminMiddleware(req , res, next ){
-    const {username , password} = req.headers
+    const username = req.headers.username
+    const password = req.headers.password
 
     Admin.findOne({
         username : username ,
@@ -18,3 +19,4 @@ function adminMiddleware(req , res, next ){
     })
 }
 
+module.exports = adminMiddleware

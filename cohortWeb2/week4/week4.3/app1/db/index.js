@@ -1,9 +1,8 @@
 const mongoose = require("mongoose")
-const { title } = require("process")
-const { moveMessagePortToContext } = require("worker_threads")
+
 
 // 1) Connect to MongoDB
-mongoose.connect("")
+mongoose.connect("mongodb+srv://buvautkarsh849:uX4uz86UqjbWECW4@cluster0.g427upx.mongodb.net/course_selling_app")
 
 
 //2)Defing the admin and user schema
@@ -16,7 +15,7 @@ const UserSchema = new mongoose.Schema({
     username : String,
     password : String,
     purchasedCourses : [{
-        type : mongoose.Schema.types.ObjectId,
+        type : mongoose.Schema.Types.ObjectId,
         ref : "---"
     }]
 })

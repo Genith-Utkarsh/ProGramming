@@ -1,10 +1,10 @@
 const express = require("express")
-const {User, Course} = require("../db/index")
-const router = express.router()
+const {User, Course} = require("../db/")
+const router = express.Router()
 const userMiddleware = require("../middleware/user")
 
 router.post("/signup", async (req, res) => {
-    const {username, password}  = req.body
+    const {username, password}  = req.headers
 
     await User.create({
         username,
@@ -27,11 +27,11 @@ router.get("/courses", async (req, res) => {
 
 
 
-router.post("/courses/:courseId", userMiddleware ,(req, res) => {
+router.post("/courses/:courseId", userMiddleware ,async(req, res) => {
     const courseId = req.params.courseId
     const username = req.headers.username
 
-    User.updateOne({
+    await User.updateOne({
         username : username
     }, {
          "$push" : {
