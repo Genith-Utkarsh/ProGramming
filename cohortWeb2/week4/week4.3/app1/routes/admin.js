@@ -1,34 +1,46 @@
 const express = require("express")
 const adminMiddleware = require("../middleware/admin")
-const { Admin } = require("../db/index.js")
+const { Admin,  Course} = require("../db/index.js")
 const router = express.Router()
 
-router.post("/signup",  (req, res) => {
+router.post("/signup",  async (req, res) => {
     const username = req.headers.username
     const password = req.headers.password
 
-    const adminExists = Admin.findOne({
-        username : username
-    }) .then(function(value) {
-        if(value){
-            res.status(401).json({
-                msg : "User already exist please choose another username"
-            })
-        } else {
-            res.status(200).json({
-                msg : "Admin created succesfully"
-            })
-        }
-        
+    // check if username is already taken or not 
+    await Admin.create({
+        username : username,
+        password : password
     })
-}) 
 
-router.post("/courses", adminMiddleware, (req, res) => {
-
+    res.status(201).json({
+        msg : "Admin created successfully.."
+    })
 })
 
-router.get("/courses", adminMiddleware, (req, res) => {
 
+
+router.post("/courses", adminMiddleware, async (req, res) => {
+    const {title, description, imageLink, price} = req.body
+    const new_course = await Course.create({
+        title,
+        description,
+        imageLink,
+        price
+    })
+
+    res.status(201).json({
+        msg : "Course created successfully",
+        courseId : new_course._id
+    })
+})
+
+router.get("/courses", adminMiddleware, async (req, res) => {
+    const responce = await Course.find({})
+
+    res.json({
+        Courses : responce
+    })
 })
 
 module.exports = router
