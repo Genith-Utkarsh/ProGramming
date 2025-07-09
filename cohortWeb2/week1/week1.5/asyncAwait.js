@@ -38,3 +38,4 @@ async function mainSecond(){
     console.log(content)
 }
 mainSecond()
+
