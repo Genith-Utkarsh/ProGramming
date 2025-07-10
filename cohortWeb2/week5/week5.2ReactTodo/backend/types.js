@@ -1,6 +1,6 @@
 const zod = require("zod")
 
-const creatTodo = zod.object({
+const createTodo = zod.object({
     title : zod.string(),
     description : zod.string()
 })
@@ -13,6 +13,6 @@ const updateTodo = zod.object({
 
 
 module.exports = {
-    creatTodo,
+    createTodo,
     updateTodo
 }
