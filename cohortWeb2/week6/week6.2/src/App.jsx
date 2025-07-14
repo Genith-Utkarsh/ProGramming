@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState , memo} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import axios from "axios"
@@ -155,7 +155,28 @@ import './App.css'
 
 // ==========================================================
 
+function App(){
+    const [count , setCount] = useState(0)
 
+    const a = useCallback(function() {
+        console.log("Function called")
+    }, [])
+
+    return (
+        <div>
+            <button onClick={() => setCount(count + 1)}>Counter = {count}</button>
+
+            <Demo inputFunction = {a} />
+        </div>
+    )
+}
+
+const Demo = memo(function Demo({a}){
+    console.log("renderer")
+    return <div>
+        Hey there
+    </div>
+})
 
 
 export default App
