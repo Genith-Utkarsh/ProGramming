@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState , memo} from 'react'
+import { useCallback, useEffect, useMemo, useState , memo, useRef} from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import axios from "axios"
@@ -183,35 +183,58 @@ import './App.css'
 
 // custom hooks
 
-function useTodo(){
-    const [todos, setTodos] =useState([])
+// function useTodo(){
+//     const [todos, setTodos] =useState([])
 
-    useEffect(function(){
-        axios.get(`https://expresstodobackend.onrender.com/todos`)
-        .then(function(responce){
-            setTodos(responce.data)
-        })
-    }, [])
+//     useEffect(function(){
+//         axios.get(`https://expresstodobackend.onrender.com/todos`)
+//         .then(function(responce){
+//             setTodos(responce.data)
+//         })
+//     }, [])
 
-    return todos
-}
+//     return todos
+// }
+
+// function App(){
+//     const todos = useTodo()
+//     return (
+//         <div>
+//             {todos.map((todo) =>{
+//                 return <Display title = {todo.title} description = {todo.description} />
+//             })}
+//         </div>
+//     )
+// }
+
+// function Display({title, description}){
+//     return <div>
+//         <h1>{title}</h1>
+//         <h4>{description}</h4>
+//     </div>
+// }
+
+
+//=======================================================
+
+// useRef
 
 function App(){
-    const todos = useTodo()
+    const [rate , setRate] =useState(100)
+    const divRef = useRef()
+
+
+    useEffect(() => {
+        setTimeout(() => {
+            divRef.current.innerText = 500
+    }, 2000)
+    }, [])
     return (
         <div>
-            {todos.map((todo) =>{
-                return <Display title = {todo.title} description = {todo.description} />
-            })}
+            The current rate is <div ref={divRef}>{rate}</div>
         </div>
     )
 }
 
-function Display({title, description}){
-    return <div>
-        <h1>{title}</h1>
-        <h4>{description}</h4>
-    </div>
-}
 
 export default App
