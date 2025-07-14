@@ -155,28 +155,63 @@ import './App.css'
 
 // ==========================================================
 
-function App(){
-    const [count , setCount] = useState(0)
+// function App(){
+//     const [count , setCount] = useState(0)
 
-    const a = useCallback(function() {
-        console.log("Function called")
+//     const a = useCallback(function() {
+//         console.log("Function called")
+//     }, [])
+
+//     return (
+//         <div>
+//             <button onClick={() => setCount(count + 1)}>Counter = {count}</button>
+
+//             <Demo inputFunction = {a} />
+//         </div>
+//     )
+// }
+
+// const Demo = memo(function Demo({a}){
+//     console.log("renderer")
+//     return <div>
+//         Hey there
+//     </div>
+// })
+
+
+//======================================
+
+// custom hooks
+
+function useTodo(){
+    const [todos, setTodos] =useState([])
+
+    useEffect(function(){
+        axios.get(`https://expresstodobackend.onrender.com/todos`)
+        .then(function(responce){
+            setTodos(responce.data)
+        })
     }, [])
 
+    return todos
+}
+
+function App(){
+    const todos = useTodo()
     return (
         <div>
-            <button onClick={() => setCount(count + 1)}>Counter = {count}</button>
-
-            <Demo inputFunction = {a} />
+            {todos.map((todo) =>{
+                return <Display title = {todo.title} description = {todo.description} />
+            })}
         </div>
     )
 }
 
-const Demo = memo(function Demo({a}){
-    console.log("renderer")
+function Display({title, description}){
     return <div>
-        Hey there
+        <h1>{title}</h1>
+        <h4>{description}</h4>
     </div>
-})
-
+}
 
 export default App
