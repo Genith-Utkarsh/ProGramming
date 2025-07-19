@@ -1,6 +1,6 @@
 import { RecoilRoot, useRecoilValue } from "recoil"
 import React from "react"
-import { allNotificationsAtom, totalNotificatioonSelector } from "./atoms"
+import { allNotificationsSelector, totalNotificatioonSelector } from "./atoms"
 
 function App() {
   return (
@@ -30,9 +30,8 @@ function App() {
 // }
 
 
-
 function MainApp(){
-  const allNotificationsData = useRecoilValue(allNotificationsAtom)
+  const allNotificationsData = useRecoilValue(allNotificationsSelector)
   const totalNotificationsCount = useRecoilValue(totalNotificatioonSelector)
   
 

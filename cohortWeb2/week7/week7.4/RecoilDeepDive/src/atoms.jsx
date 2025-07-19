@@ -38,15 +38,12 @@ import axios from "axios"
 
 
 
-export const allNotificationsAtom = atom({
-    key : "allNotificationsAtom",
-    default : selector({
-        key : "allNotificationSelector",
-        get : async () => {
-            const responce = await axios.get("https://expresstodobackend.onrender.com/notifications")
-            return responce.data
-        }
-    })
+export const allNotificationsSelector = selector({
+    key : "allNotificationSelector",
+    get : async () => {
+        const responce = await axios.get("https://expresstodobackend.onrender.com/notifications")
+        return responce.data
+    }
 })
 
 
@@ -54,7 +51,7 @@ export const allNotificationsAtom = atom({
 export const totalNotificatioonSelector = selector({
     key : "totalNotificatioonSelector",
     get : ({get}) => {
-        const allNotificationsData = get(allNotificationsAtom)
+        const allNotificationsData = get(allNotificationsSelector)
 
         return allNotificationsData.network + allNotificationsData.jobs + allNotificationsData.messaging + allNotificationsData.notifications
     }
