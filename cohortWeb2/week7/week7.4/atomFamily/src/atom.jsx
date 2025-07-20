@@ -1,5 +1,5 @@
 import { atomFamily } from 'recoil'
-import { TODOS } from './todo'
+import { TODOS } from './todo.jsx'
 
 export const todoAtomFamily = atomFamily({
     key: "todoAtomFamily",
