@@ -58,7 +58,7 @@ function TodoLodable({id}){
     return <div>Loading....</div>
   } else if(todo.state === "hasError"){
     return <div>Error loading todo</div>
-  } else {
+  } else if(todo.state === "hasValue"){
     return <div>
       <h1>{todo.contents.title}</h1>
       <h4>{todo.contents.description}</h4>
