@@ -1,14 +1,11 @@
-
-
-import { useState } from 'react'
-import { VideoCard } from './Components/VideoCard'
+import { VideoGrid } from './Components/VideoGrid'
 
 function App() {
   
 
   return (
     <div className='bg-black'>
-      <VideoCard />
+      <VideoGrid />
     </div>
   )
 }
