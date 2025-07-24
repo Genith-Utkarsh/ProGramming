@@ -1,20 +1,15 @@
-export default {
-  // Replace your-framework with the framework you are using, e.g. react-vite, nextjs-vite, vue3-vite, etc.
-  framework: '@storybook/your-framework',
-  stories: ['../src/**/*.mdx', '../stories/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
-  addons: ['@storybook/addon-docs'],
-  core: {
-    builder: '@storybook/builder-vite',
-  },
-  async viteFinal(config) {
-    // Merge custom configuration into the default config
-    const { mergeConfig } = await import('vite');
+import { RevenueCard } from "../../Components/RevenueCard";
 
-    return mergeConfig(config, {
-      // Add dependencies to pre-optimization
-      optimizeDeps: {
-        include: ['storybook-dark-mode'],
-      },
-    });
+const meta = {
+  component: RevenueCard,
+} 
+
+export default meta;
+
+export const Primary = {
+  args: {
+    title : "ASds", 
+    orderCount : "13", 
+    amount : "10000"
   },
 };
