@@ -1,7 +1,6 @@
 const express = require("express")
 const { adminAuthMiddlewrae } = require("../middleware/admin")
 const { Admin, Course } = require("../db/db")
-const { captureOwnerStack } = require("react")
 const router = express.Router()
 
 router.get("/signup", async (req, res) => {
