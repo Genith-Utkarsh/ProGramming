@@ -43,10 +43,39 @@
 // fnName:  (Arguments) => Type for what it returns  eg, void, number, string, boolean etc
 
 
-function runAfter1sec(fnName: () => void ){
-    setTimeout(fnName, 1000)
+// function runAfter1sec(fnName: () => void ){
+//     setTimeout(fnName, 1000)
+// }
+
+// runAfter1sec(function fnName(){
+//     console.log("Hi")
+// })
+
+
+
+
+// Creating object in javascript
+
+
+interface User  {
+    firstName : string
+    lastName : string
+    age : number
+    email ?: string        // optional field   ?:
 }
 
-runAfter1sec(function fnName(){
-    console.log("Hi")
+
+function isLegal(user : User){
+    if(user.age > 18){
+        return true
+    } else {
+        return false
+    }
+}
+
+
+isLegal({
+    firstName : "Utkarsh",
+    lastName : "Buva",
+    age : 18
 })
