@@ -57,25 +57,58 @@
 // Creating object in javascript
 
 
-interface User  {
-    firstName : string
-    lastName : string
+// interface User  {
+//     firstName : string
+//     lastName : string
+//     age : number
+//     email ?: string        // optional field   ?:
+// }
+
+
+// function isLegal(user : User){
+//     if(user.age > 18){
+//         return true
+//     } else {
+//         return false
+//     }
+// }
+
+
+// isLegal({
+//     firstName : "Utkarsh",
+//     lastName : "Buva",
+//     age : 18
+// })
+
+
+
+
+
+//   interface and class
+
+
+ // blueprint or contract
+interface Person {
+    name : string
     age : number
-    email ?: string        // optional field   ?:
+    greet(phrase : string) : void
 }
 
 
-function isLegal(user : User){
-    if(user.age > 18){
-        return true
-    } else {
-        return false
+class Employee implements Person {
+    name : string
+    age : number
+
+    constructor(name: string , age: number){
+        this.name = name
+        this.age = age
+    }
+
+    greet(phrase: string): void {
+        console.log(`${phrase} ${this.name}`)
     }
 }
 
 
-isLegal({
-    firstName : "Utkarsh",
-    lastName : "Buva",
-    age : 18
-})
+const e = new Employee("Alan", 22)
+console.log(e.greet("Hello"))
