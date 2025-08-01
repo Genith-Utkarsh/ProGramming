@@ -133,21 +133,48 @@
 
 // (2)Union
 
-type Manager = {
-    name : string
-    startDate : Date
+// type Manager = {
+//     name : string
+//     startDate : Date
+// }
+
+// interface Employee {
+//     name : string
+//     department : string
+// }
+
+
+// type Techlead = Employee & Manager
+
+// const teamLead : Techlead = {
+//     name : "Utkarsh",
+//     startDate : new Date(),
+//     department : "Blockchain dev"
+// }
+
+
+
+
+
+
+// Arrays in Ts
+
+// finding max element in array
+
+type NumberArr = number[]
+
+function findMax(arr : NumberArr){
+    let max: number = arr[0]
+    for(let i = 1 ; i < arr.length ; i++){
+        if(arr[i] > max){
+            max = arr[i]
+        }
+    }
+
+    return max
 }
 
-interface Employee {
-    name : string
-    department : string
-}
+
+findMax([1, 2, 4, 5])
 
 
-type Techlead = Employee & Manager
-
-const teamLead : Techlead = {
-    name : "Utkarsh",
-    startDate : new Date(),
-    department : "Blockchain dev"
-}
