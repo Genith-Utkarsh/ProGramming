@@ -88,27 +88,66 @@
 
 
  // blueprint or contract
-interface Person {
+// interface Person {
+//     name : string
+//     age : number
+//     greet(phrase : string) : void
+// }
+
+
+// class Employee implements Person {
+//     name : string
+//     age : number
+
+//     constructor(name: string , age: number){
+//         this.name = name
+//         this.age = age
+//     }
+
+//     greet(phrase: string): void {
+//         console.log(`${phrase} ${this.name}`)
+//     }
+// }
+
+
+// const e = new Employee("Alan", 22)
+// console.log(e.greet("Hello"))
+
+
+
+
+
+
+// Type
+
+
+// (1) defining multiple types
+
+// type numberOrString = number | string
+
+// function greet(id: numberOrString){
+
+// }
+
+
+
+// (2)Union
+
+type Manager = {
     name : string
-    age : number
-    greet(phrase : string) : void
+    startDate : Date
+}
+
+interface Employee {
+    name : string
+    department : string
 }
 
 
-class Employee implements Person {
-    name : string
-    age : number
+type Techlead = Employee & Manager
 
-    constructor(name: string , age: number){
-        this.name = name
-        this.age = age
-    }
-
-    greet(phrase: string): void {
-        console.log(`${phrase} ${this.name}`)
-    }
+const teamLead : Techlead = {
+    name : "Utkarsh",
+    startDate : new Date(),
+    department : "Blockchain dev"
 }
-
-
-const e = new Employee("Alan", 22)
-console.log(e.greet("Hello"))
