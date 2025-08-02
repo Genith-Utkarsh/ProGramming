@@ -31,3 +31,24 @@
 
 
 
+
+// Union type allows us to define multiple types for one variable 
+
+
+// 1)
+
+let variable: number | string
+variable = "Hey there it is string"
+console.log(variable)
+
+variable = 100
+console.log(variable)
+
+
+
+
+// Union allows us to include null and undefined . they allows us to represent optional values
+
+let userName: string | null | undefined
+userName = null
+console.log(userName)

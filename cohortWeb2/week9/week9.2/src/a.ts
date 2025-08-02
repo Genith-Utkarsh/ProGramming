@@ -161,20 +161,32 @@
 
 // finding max element in array
 
-type NumberArr = number[]
+// type NumberArr = number[]
 
-function findMax(arr : NumberArr){
-    let max: number = arr[0]
-    for(let i = 1 ; i < arr.length ; i++){
-        if(arr[i] > max){
-            max = arr[i]
-        }
-    }
+// function findMax(arr : NumberArr){
+//     let max: number = arr[0]
+//     for(let i = 1 ; i < arr.length ; i++){
+//         if(arr[i] > max){
+//             max = arr[i]
+//         }
+//     }
 
-    return max
-}
-
-
-findMax([1, 2, 4, 5])
+//     return max
+// }
 
 
+// findMax([1, 2, 4, 5])
+
+
+
+
+// interface User {
+//     firstName : string
+//     lastName : string
+//     age : number
+// }
+
+
+// function filterUsers(users: User[]){
+    
+// }
