@@ -37,18 +37,26 @@
 
 // 1)
 
-let variable: number | string
-variable = "Hey there it is string"
-console.log(variable)
+// let variable: number | string
+// variable = "Hey there it is string"
+// console.log(variable)
 
-variable = 100
-console.log(variable)
-
-
+// variable = 100
+// console.log(variable)
 
 
-// Union allows us to include null and undefined . they allows us to represent optional values
 
-let userName: string | null | undefined
-userName = null
-console.log(userName)
+
+// // Union allows us to include null and undefined . they allows us to represent optional values
+
+// let userName: string | null | undefined
+// userName = null
+// console.log(userName)
+
+
+
+
+
+// defining array in ts
+
+let numArray: number[]  = [1, 2, 3]
