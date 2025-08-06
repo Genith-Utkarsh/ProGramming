@@ -2,10 +2,10 @@ import dotenv from "dotenv";
 import { Client } from "pg";
 // dotenv.config()
 
-const client = new Client({
-  connectionString:
-    "postgresql://neondb_owner:npg_ByISUEdklQ72@ep-sweet-hill-a53vr6xq-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
-});
+// const client = new Client({
+//   connectionString:
+//     "postgresql://neondb_owner:npg_ByISUEdklQ72@ep-sweet-hill-a53vr6xq-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+// });
 
 // async function creatUsersTable() {
 //     await client.connect()
@@ -24,18 +24,48 @@ const client = new Client({
 
 // creatUsersTable()
 
+// ===========================================
+
+// async function insertData() {
+//   try {
+//     await client.connect()
+//     const insertQuery =
+//       "INSERT INTO users (username, email, password) VALUES ('username2', 'test@gmail.com', 'Hello@123' )";
+//     const result = await client.query(insertQuery);
+//     console.log("Insertation of data successful", result);
+//   } catch (err) {
+//     console.log("Error duting insertion", err);
+//   } finally {
+//     client.end();
+//   }
+// }
+
+// insertData()
+
+//========================
+
 async function insertData() {
+  const client = new Client({
+    connectionString:
+      "postgresql://neondb_owner:npg_ByISUEdklQ72@ep-sweet-hill-a53vr6xq-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+  });
+
   try {
     await client.connect()
-    const insertQuery =
-      "INSERT INTO users (username, email, password) VALUES ('username2', 'test@gmail.com', 'Hello@123' )";
-    const result = await client.query(insertQuery);
-    console.log("Insertation of data successful", result);
-  } catch (err) {
-    console.log("Error duting insertion", err);
+
+    const insertQuery = "INSERT INTO users (username , email, password) VALUES($1, $2, $3)"
+    const values = ['Hikaru', 'Hikaru@gmail.com', 'Hikaru*Nakamura']
+
+    const result = await client.query(insertQuery, values)
+
+    console.log("Insertion successful", result)
+
+  } catch(err){
+    console.log("Error during insertion", err)
   } finally {
-    client.end();
+    await client.end()
   }
 }
+
 
 insertData()
