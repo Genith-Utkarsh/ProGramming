@@ -4,7 +4,7 @@ import { Client } from "pg";
 
 // const client = new Client({
 //   connectionString:
-//     "postgresql://neondb_owner:npg_ByISUEdklQ72@ep-sweet-hill-a53vr6xq-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
+//     "",
 // });
 
 // async function creatUsersTable() {
@@ -44,28 +44,62 @@ import { Client } from "pg";
 
 //========================
 
-async function insertData() {
-  const client = new Client({
-    connectionString:
-      "postgresql://neondb_owner:npg_ByISUEdklQ72@ep-sweet-hill-a53vr6xq-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require",
-  });
+// async function insertData() {
+//   const client = new Client({
+//     connectionString:
+//       "-//-",
+//   });
 
-  try {
-    await client.connect()
+//   try {
+//     await client.connect()
 
-    const insertQuery = "INSERT INTO users (username , email, password) VALUES($1, $2, $3)"
-    const values = ['Hikaru', 'Hikaru@gmail.com', 'Hikaru*Nakamura']
+//     const insertQuery = "INSERT INTO users (username , email, password) VALUES($1, $2, $3)"
+//     const values = ['Hikaru', 'Hikaru@gmail.com', 'Hikaru*Nakamura']
 
-    const result = await client.query(insertQuery, values)
+//     const result = await client.query(insertQuery, values)
 
-    console.log("Insertion successful", result)
+//     console.log("Insertion successful", result)
 
-  } catch(err){
-    console.log("Error during insertion", err)
-  } finally {
-    await client.end()
-  }
+//   } catch(err){
+//     console.log("Error during insertion", err)
+//   } finally {
+//     await client.end()
+//   }
+// }
+
+
+// insertData()
+
+
+// ===================
+
+
+
+
+// next approach
+
+async function getUser(gmail:string) {
+    const client = new Client({
+        connectionString : "postgresql://neondb_owner:npg_ByISUEdklQ72@ep-sweet-hill-a53vr6xq-pooler.us-east-2.aws.neon.tech/neondb?sslmode=require&channel_binding=require"
+    })
+
+    try{
+        await client.connect()
+        const query = "SELECT * FROM users WHERE email = $1"
+        const values = [gmail]
+        const result = await client.query(query, values)
+
+        if(result.rows.length > 0){
+            console.log("User found =>", result.rows[0])
+            return result.rows[0]
+        } else{
+            console.log("no user found with the given mail.")
+        }
+
+    } catch(err){
+        console.log("Error getting user :  ", err)
+    }
+    
 }
 
-
-insertData()
+getUser("Hikaru@gmail.com")
