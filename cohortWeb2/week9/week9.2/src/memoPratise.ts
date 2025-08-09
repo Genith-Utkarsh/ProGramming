@@ -78,8 +78,53 @@
 
 // Creating the array where it can hold values of  different types
 
-let stuff: (string | number)[] = ["Hey", 1 ,2, 5, "Shunar"]
-console.log(stuff)
+// let stuff: (string | number)[] = ["Hey", 1 ,2, 5, "Shunar"]
+// console.log(stuff)
 
 // we can make all types of mixed array using () 
 
+
+
+
+// creating Objects
+
+// initialising
+
+// let person: {}
+
+
+// let person: {
+//     name : string,
+//     age: number
+// }
+
+// person = {
+//     name : "ALan",
+//     age : 20
+// }
+
+// console.log(person.name, person.age)
+
+
+// // Updating the values insde object'
+
+// person.name = "Nyxeos"
+// console.log(person.name)
+
+
+// //we can also have more complex types
+
+// // directly assigning values
+
+
+// let player : {
+//     teamName : string,
+//     scores : number[]
+// } = {
+//     teamName : "Holto Syno",
+//     scores : [20, 12 , 4, 5, 223]
+// }
+
+
+// let scores: number[] = player.scores
+// console.log(scores)
