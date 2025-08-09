@@ -21,3 +21,10 @@ type PrcticeSeries = number[]
 const stockPrices: PrcticeSeries = [10, 23, 42, 42]
 
 console.log(stockPrices)
+
+
+// assiginin multiple types
+
+type UserId = number | string
+let id: UserId = "#253515"
+console.log(id)

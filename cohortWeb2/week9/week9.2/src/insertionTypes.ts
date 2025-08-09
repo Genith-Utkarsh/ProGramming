@@ -9,3 +9,11 @@ type Employee = {
 }
 
 type PersonEmployee = Person & Employee
+
+let jhon: PersonEmployee = {
+    userName : "ALan",
+    employeeId : 12
+}
+
+
+console.log(jhon)
