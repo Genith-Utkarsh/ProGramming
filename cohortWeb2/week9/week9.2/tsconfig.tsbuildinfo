@@ -1,1 +1,1 @@
-{"root":["./src/a.ts","./typescriptPract/vite.config.ts","./typescriptPract/src/App.tsx","./typescriptPract/src/main.tsx","./typescriptPract/src/vite-env.d.ts"],"errors":true,"version":"5.8.3"}
+{"root":["./src/a.ts","./src/memoPratise.ts","./typescriptPract/vite.config.ts","./typescriptPract/src/App.tsx","./typescriptPract/src/main.tsx","./typescriptPract/src/vite-env.d.ts"],"errors":true,"version":"5.9.2"}

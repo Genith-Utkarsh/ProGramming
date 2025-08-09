@@ -4,7 +4,9 @@ function App() {
 
   return (
     <>
+      <Todo title='Go to gym' description='At 6 pm' done = {true}  />
     </>
+
   )
 }
 

@@ -57,6 +57,29 @@
 
 
 
-// defining array in ts
+// 1)defining array in ts
 
-let numArray: number[]  = [1, 2, 3]
+// let numArray: number[]  = [1, 2, 3]
+// let stringArray: string[] = ["Hello", "Hey", "How"]
+
+
+
+// 2)Updating the elements in array
+
+// let numArray: number[] = [1, 2, 4, 5,]
+// numArray[0] = 0
+// console.log(numArray)
+
+// // adding element in arrau
+// numArray.push(6)
+// console.log(numArray)
+
+
+
+// Creating the array where it can hold values of  different types
+
+let stuff: (string | number)[] = ["Hey", 1 ,2, 5, "Shunar"]
+console.log(stuff)
+
+// we can make all types of mixed array using () 
+
